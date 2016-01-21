@@ -12,8 +12,8 @@ Given the image of vinyl plate write the program which decodes it into the sound
 Compillation and running
 ========================
 
-1. install libsdl2:  
-        `apt-get install libsdl2-dev`
+1. install libsdl2 dependencies:  
+        `apt-get install libsdl2-dev libsdl2-image-dev`
 2. compile and run:  
         `make && ./vinyldc vinyl.png`
 3. play decoded file (command line vlc player is used in this example):  
