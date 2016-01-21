@@ -1,6 +1,6 @@
 #include <stdint.h>
 // WAV header
-// https://ccrma.stanford.edu/courses/422/projects/WaveFormat/
+// http://soundfile.sapp.org/doc/WaveFormat/
 struct wav_hdr {
 	char chunk_id[4];
 	uint32_t chunk_size;
@@ -17,4 +17,4 @@ struct wav_hdr {
 	uint32_t subchunk2_size;
 } __attribute__((packed));
 
-struct wav_hdr mk_wav_hdr(uint32_t payload_size);
+void init_wav_hdr(struct wav_hdr *hdr, uint32_t payload_size);

@@ -10,7 +10,7 @@
 #include "surface.h"
 
 #define DECODED_SOUND_FILE "vinyl_decoded.wav"
-#define BLACK_THRESHOLD 200
+#define BLACK_THRESHOLD 100
 #define DEGREE_STRIDE 0.1
 #define SCREEN_WIDTH 2000
 #define SCREEN_HEIGHT 2000
@@ -171,7 +171,7 @@ void vinyl_decode(SDL_Window* sdl_window, SDL_Surface* screen_surface, SDL_Surfa
 	}
 
 	// replace placeholder wav_hdr struct in the beginning of file with the actual one
-	hdr = mk_wav_hdr(samples_written);
+	init_wav_hdr(&hdr, samples_written);
 	rewind(decoded_sound);
 	fwrite(&hdr, sizeof(hdr), 1, decoded_sound);
 	fclose(decoded_sound);
