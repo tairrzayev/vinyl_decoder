@@ -1,3 +1,5 @@
+# vinyldc
+
 Description
 ===========
 My go at the interesting Samsung interview task I have found on the internet recently
@@ -14,10 +16,12 @@ Compillation and running
 
 1. install libsdl2 dependencies:  
         `apt-get install libsdl2-dev libsdl2-image-dev`
-2. compile and run:  
-        `make && ./vinyldc vinyl.png`
-3. play decoded file (command line vlc player is used in this example):  
-        `cvlc vinyl_decoded.wav`
+2. compile:  
+        `make`
+3. run:  
+        `./vinyldc vinyl.png vinyl.wav`
+4. play decoded file (command line vlc player is used in this example):  
+        `cvlc vinyl.wav`
 
 Algorithm description
 =====================
@@ -36,4 +40,3 @@ Algorithm description
   3. encountered a very dark bump on the track and the algoritm considered it to be 'off track' value. Add the value  
 to the sample file as if it was light enough  
 4. After we have reached the end of the plate, prepend the wav header with the amount of samples we have written to the beginning of the sample file.
-

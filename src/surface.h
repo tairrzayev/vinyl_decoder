@@ -1,10 +1,11 @@
 struct SDL_Surface;
 struct point;
 
-struct pixel {
-	Uint8 r;
-	Uint8 g;
-	Uint8 b;
+struct pixel
+{
+    Uint8 r;
+    Uint8 g;
+    Uint8 b;
 };
 
 SDL_Surface* load_surface(SDL_Surface *screen, const char* path);

@@ -1,6 +1,7 @@
-struct point {
-	int x;
-	int y;
+struct point
+{
+    int x;
+    int y;
 };
 
 struct point mkpoint(int x, int y);
