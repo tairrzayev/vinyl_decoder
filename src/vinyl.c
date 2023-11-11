@@ -11,21 +11,17 @@ bool vinyl_init()
     {
         printf( "Failed to initialize SDL: %s\n", SDL_GetError());
         success = false;
-        goto out;
     }
-
-    int imgFlags = IMG_INIT_PNG;
-    if (!(IMG_Init(imgFlags) & imgFlags))
+    else
     {
-        printf( "Failed to initialize SDL_image: %s\n", IMG_GetError() );
-        success = false;
-        goto img_init_fail;
+        int imgFlags = IMG_INIT_PNG;
+        if (!(IMG_Init(imgFlags) & imgFlags))
+        {
+            printf( "Failed to initialize SDL_image: %s\n", IMG_GetError() );
+            success = false;
+            SDL_Quit();
+        }
     }
-
-out:
-    return success;
-img_init_fail:
-    SDL_Quit();
     return success;
 }
 

@@ -4,27 +4,18 @@
 #include "surface.h"
 #include "point.h"
 
-SDL_Surface* load_surface(SDL_Surface* screen_surface, const char* path)
+SDL_Surface* load_surface(SDL_Surface* screen_surface, SDL_Surface* loadedSurface)
 {
     //The final optimized image
     SDL_Surface* optimizedSurface = NULL;
-
-    //Load image at specified path
-    SDL_Surface* loadedSurface = IMG_Load(path);
-    if (loadedSurface == NULL)
-    {
-        printf("Unable to load image %s: %s\n", path, IMG_GetError());
-        goto out;
-    }
 
     //Convert surface to screen format
     optimizedSurface = SDL_ConvertSurface(loadedSurface, screen_surface->format, 0);
     if (optimizedSurface == NULL)
     {
-        printf("Unable to optimize image %s: %s\n", path, SDL_GetError());
+        printf("Unable to optimize image: %s\n", SDL_GetError());
     }
 
-out:
     return optimizedSurface;
 }
 
